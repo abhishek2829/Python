@@ -1,0 +1,103 @@
+# Health Management System
+# 3 clients - Abhi,Harry, Rohan
+
+# def getdate():
+#     import datetime
+#     return datetime.datetime.now()
+
+# Total 6 files
+# write a function that when executed takes as input client name
+# One more function to retrieve exercise or food for any client
+
+# Health Managment System
+
+def getdate():
+    import datetime
+    return datetime.datetime.now()
+
+def take(Client):
+        if Client == 1:
+            choice = int(input("Enter 1 for Exercise and 2 for Food: "))
+            if choice == 1:
+                value = input("type here\n")
+                with open("Abhi_ex.txt", "a") as op:
+                    op.write(str([str(getdate())])+":"+value+"\n")
+                    print("successfully written")
+            elif(choice == 2):
+                value = input("type here\n")
+                with open("Abhi_food.txt", "a") as op:
+                    op.write(str([str(getdate())]) + ":" + value + "\n")
+                    print("successfully written")
+        elif Client == 2 :
+            choice = int(input("Enter 1 for Exercise and 2 for Food: "))
+            if choice == 1 :
+                value = input("type here your exercise name \n")
+                with open("Harry_ex.txt", "a") as op:
+                    op.write(str([str(getdate())])+":"+value+"\n")
+                    print("successfully written")
+            elif choice == 2:
+                value = input("type here your food name \n")
+                with open("Harry_food.txt", "a") as op:
+                    op.write(str([str(getdate())]) + ":" + value + "\n")
+                    print("successfully written")
+        elif Client == 3:
+            choice = int(input("Enter 1 for Exercise and 2 for Food: "))
+            if choice == 1:
+                value = input("type here your exercise name \n")
+                with open("Rohan_ex.txt", "a") as op:
+                    op.write(str(getdate())+":"+value+"\n")
+                    print("successfully written")
+            elif choice == 2:
+                value = input("type your food name here \n")
+                with open("Rohan_food.txt","a") as op:
+                    op.write(str(getdate())+":"+value+"\n")
+                    print("successfully written")
+        else:
+            print("Choice is out of Scope .Please Enter 1(Abhi) or 2(Harry) or 3(Rohan):")
+            print("Plz try again")
+
+def retrieve(Client):
+    if Client == 1:
+        choice = int(input("enter 1 for exercise and 2 for food :"))
+        if choice == 1:
+            with open("Abhi_ex.txt") as op:
+                for i in op:
+                    print(i, end="")
+        elif choice == 2:
+            with open("Abhi_food.txt") as op:
+                for i in op:
+                    print(i, end="")
+    elif Client == 2:
+        choice = int(input("enter 1 for exercise and 2 for food :"))
+        if choice == 1:
+            with open("Harry_ex.txt") as op:
+                for i in op:
+                    print(i, end="")
+        elif choice == 2:
+            with open("Harry_food.txt") as op:
+                for i in op:
+                    print(i, end="")
+    elif Client == 3:
+        choice = int(input("enter 1 for exercise and 2 for food:"))
+        if choice == 1:
+            with open("Rohan_ex.txt") as op:
+                for i in op:
+                    print(i, end="")
+        elif choice == 2:
+            with open("Rohan_food.txt") as op:
+                for i in op:
+                    print(i, end="")
+
+    else :
+        print("plz enter valid input (1(Abhi),2(Harry),3(rohan)")
+        print("Health management system: ")
+
+
+a = int(input("Press 1 for taking the value and 2 for retrieving :"))
+
+if a == 1:
+    b = int(input("Press 1 for Abhi,2 for Harry or 3 for Rohan :"))
+    take(b)
+else:
+    b = int(input("Press 1 for Abhi,2 for Harry or 3 for Rohan :"))
+    retrieve(b)
